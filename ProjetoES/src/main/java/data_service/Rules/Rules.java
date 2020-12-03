@@ -2,14 +2,17 @@ package data_service.Rules;
 
 public class Rules {
 	
-	public boolean logMethod(int loc, int cyclo, int thresholds){
-		if(loc + cyclo > thresholds) {
+	public boolean longMethod(int loc, int cyclo, int thresholds){
+		if(loc>80 && cyclo>10) {
 			return true;
 		}
 		return false;
-		
 	}
 	
+	
+	public boolean featureEnvy() {
+		return false;
+	}
 	
 	
 	
