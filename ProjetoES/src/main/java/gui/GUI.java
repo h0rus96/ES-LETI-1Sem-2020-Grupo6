@@ -15,6 +15,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import data_service.CodeSmells.QualityIndicators;
+import data_service.CodeSmells.ReadExcelFile;
+import data_service.CodeSmells.SourceCode;
+
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import javax.swing.JPopupMenu;
@@ -34,6 +39,7 @@ public class GUI {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private SourceCode[] sc;
 
 	/**
 	 * Launch the application.
@@ -70,6 +76,9 @@ public class GUI {
 		btnImportExcell.setBounds(760, 328, 119, 23);
 		btnImportExcell.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ReadExcelFile instance = new ReadExcelFile();
+				instance.createTable();
+				sc = instance.getSourceCode();
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -141,23 +150,14 @@ public class GUI {
 		
 		JButton btnScanCode = new JButton("Scan Code");
 		btnScanCode.setBounds(303, 222, 159, 38);
-		frame.getContentPane().add(btnScanCode);
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
+		btnImportExcell.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QualityIndicators ins = new QualityIndicators();
+				System.out.println(ins.analyseQI(sc));
 			}
 		});
+		frame.getContentPane().add(btnScanCode);
+		
 	}
+	
 }
