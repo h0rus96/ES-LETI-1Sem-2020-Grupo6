@@ -2,12 +2,31 @@ package data_service.Rules;
 
 public class Rules {
 	
-	public boolean longMethod(int LOC, int CYCLO){
-		if(LOC>80 && CYCLO>10) {
-			return true;
-		}
+	public boolean longMethod(int LOC, int CYCLO, int thresholds, boolean operador){
+		//true=AND
+		//false=OR
+		if(operador==true) {
+			if(LOC>thresholds && CYCLO>thresholds) {
+				return true;
+			}
 			return false;
+		}
+		
+		if(operador==false) {
+			if(LOC>thresholds || CYCLO>thresholds) {
+				return true;
+			}
+			return false;
+		}
+		return false;
 	}
+	
+	
+//		if(LOC>80 && CYCLO>10) {
+//			return true;
+//		}
+//			return false;
+	
 	
 	
 	public boolean featureEnvy(int ATFD, int LAA, int NOFA) {
