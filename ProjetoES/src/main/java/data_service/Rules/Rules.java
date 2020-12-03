@@ -22,6 +22,26 @@ public class Rules {
 	}
 	
 	
+	public boolean featureEnvy(int ATFD, double LAA, int thresholds3, int thresholds4, boolean operador){
+		//true=AND
+		//false=OR
+		if(operador==true) {
+			if(ATFD>thresholds3 && LAA>thresholds4) {
+				return true;
+			}
+			return false;
+		}
+		
+		if(operador==false) {
+			if(ATFD>thresholds3 || LAA>thresholds4) {
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+	
+	
 //		if(LOC>80 && CYCLO>10) {
 //			return true;
 //		}
@@ -29,12 +49,12 @@ public class Rules {
 	
 	
 	
-	public boolean featureEnvy(int ATFD, int LAA, int NOFA) {
-		if((ATFD>4 && LAA<0.428571) || (ATFD>4 && LAA>0.428571 && NOFA>6)) {
-			return true;
-		}
-		return false;
-	}
+//	public boolean featureEnvy(int ATFD, int LAA, int NOFA) {
+//		if((ATFD>4 && LAA<0.428571) || (ATFD>4 && LAA>0.428571 && NOFA>6)) {
+//			return true;
+//		}
+//		return false;
+//	}
 	
 	
 }
