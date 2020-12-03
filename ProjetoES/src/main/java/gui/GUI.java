@@ -16,7 +16,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+<<<<<<< Upstream, based on origin/master
 import data_service.CodeSmells.ReadExcelFile;
+=======
+import data_service.CodeSmells.QualityIndicators;
+import data_service.CodeSmells.ReadExcelFile;
+import data_service.CodeSmells.SourceCode;
+>>>>>>> 895ebf4 Implementação botão ImportExcell, Avanço na classe de análise de Indicadores de Qualidade (QI), e implementação de método getSourceCode na classe ReadExcelFile.
 
 import javax.swing.JTextField;
 import java.awt.GridLayout;
@@ -37,6 +43,7 @@ public class GUI {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private SourceCode[] sc;
 
 	/**
 	 * Launch the application.
@@ -72,7 +79,14 @@ public class GUI {
 		JButton btnImportExcell = new JButton("Import Excell");
 		btnImportExcell.setBounds(760, 328, 119, 23);
 		btnImportExcell.addActionListener(new ActionListener() {
+<<<<<<< Upstream, based on origin/master
 			public void actionPerformed(ActionEvent e) {new ReadExcelFile().createTable();
+=======
+			public void actionPerformed(ActionEvent e) {
+				ReadExcelFile instance = new ReadExcelFile();
+				instance.createTable();
+				sc = instance.getSourceCode();
+>>>>>>> 895ebf4 Implementação botão ImportExcell, Avanço na classe de análise de Indicadores de Qualidade (QI), e implementação de método getSourceCode na classe ReadExcelFile.
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -144,23 +158,14 @@ public class GUI {
 		
 		JButton btnScanCode = new JButton("Scan Code");
 		btnScanCode.setBounds(303, 222, 159, 38);
-		frame.getContentPane().add(btnScanCode);
-	}
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
+		btnImportExcell.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QualityIndicators ins = new QualityIndicators();
+				System.out.println(ins.analyseQI(sc));
 			}
 		});
+		frame.getContentPane().add(btnScanCode);
+		
 	}
+	
 }

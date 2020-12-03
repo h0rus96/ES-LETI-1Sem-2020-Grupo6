@@ -51,6 +51,10 @@ public class ReadExcelFile
 	public int getRownCount() {
 		return rowCount;
 	}
+	
+	public SourceCode[] getSourceCode() {
+		return sc;
+	}
 
 	public SourceCode[] getExcelValuesToAnArray() {
 		sc=new SourceCode[rowCount-1];
