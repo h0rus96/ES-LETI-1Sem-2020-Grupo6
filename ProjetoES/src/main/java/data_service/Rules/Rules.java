@@ -2,18 +2,18 @@ package data_service.Rules;
 
 public class Rules {
 	
-	public boolean longMethod(int LOC, int CYCLO, int thresholds, boolean operador){
+	public boolean longMethod(int LOC, int CYCLO, int thresholds1, int thresholds2, boolean operador){
 		//true=AND
 		//false=OR
 		if(operador==true) {
-			if(LOC>thresholds && CYCLO>thresholds) {
+			if(LOC>thresholds1 && CYCLO>thresholds2) {
 				return true;
 			}
 			return false;
 		}
 		
 		if(operador==false) {
-			if(LOC>thresholds || CYCLO>thresholds) {
+			if(LOC>thresholds1 || CYCLO>thresholds2) {
 				return true;
 			}
 			return false;
