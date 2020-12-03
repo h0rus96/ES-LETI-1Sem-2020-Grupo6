@@ -2,23 +2,35 @@ package data_service.Rules;
 
 public class Rules {
 	
-	public boolean longMethod(int loc, int cyclo, int thresholds){
-		if(loc>80 && cyclo>10) {
+	public boolean longMethod(int LOC, int CYCLO){
+		if(LOC>80 && CYCLO>10) {
+			return true;
+		}
+			return false;
+	}
+	
+	
+	public boolean featureEnvy(int ATFD, int LAA, int NOFA) {
+		if((ATFD>4 && LAA<0.428571) || (ATFD>4 && LAA>0.428571 && NOFA>6)) {
 			return true;
 		}
 		return false;
 	}
 	
 	
-	public boolean featureEnvy() {
-		return false;
-	}
-	
-	
-	
-	
-
 }
+
+//Feature Envy
+//( ACCESS TO FOREIGN DATA (ATFD) > 4
+//AND
+//LOCALITY OF ATTRIBUTE ACCESSES (LAA) < 0.428571 )
+//OR
+//( ACCESS TO FOREIGN DATA (ATFD) > 4
+//AND
+//LOCALITY OF ATTRIBUTE ACCESSES (LAA) > 0.428571
+//AND
+//NUMBER OF FINAL ATTRIBUTES (NOFA) > 6 )
+
 
 
 //para o log-method é criar um metodo que recebe como argumentos (o int LOC, 
