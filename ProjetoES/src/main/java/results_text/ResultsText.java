@@ -17,7 +17,7 @@ public class ResultsText {
 
 	private int[][] resultsList;
 	private String[] booltype = {"DCI", "DII", "ADCI", "ADII"};
-	private String[] program = {"iPlasma", "PMD", "Custom_Rules"};
+	private String[] program = {"iPlasma", "PMD", "Th-Long Method", "Th-Feature Envy"};
 	private JTextArea textarea = new JTextArea();
 	
 	
@@ -27,10 +27,10 @@ public class ResultsText {
 	}
 	
 	private int[][] convertTo2DMatrix(int[] resultsList2) {
-		int[][] matrix = new int[3][4];
+		int[][] matrix = new int[4][4];
 		int counter=0;
 		
-        for(int i=0;i<3;i++) {
+        for(int i=0;i<4;i++) {
         	
             for(int j=0;j<4;j++) {
             	
@@ -91,7 +91,7 @@ public class ResultsText {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ResultsText text = new ResultsText(new int[]{0,1,2,3,0,1,2,3,0,1,2,3,0,1,2,3});
+		ResultsText text = new ResultsText(new int[]{0,1,2,3,10,11,12,13,20,21,22,23,30,31,32,33});
 		text.buildTable();
 	}
 
