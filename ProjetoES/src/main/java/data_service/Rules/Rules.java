@@ -41,6 +41,8 @@ public class Rules {
 		return false;
 	}
 	
+}
+	
 	
 //		if(LOC>80 && CYCLO>10) {
 //			return true;
@@ -57,7 +59,7 @@ public class Rules {
 //	}
 	
 	
-}
+
 
 //Feature Envy
 //( ACCESS TO FOREIGN DATA (ATFD) > 4
