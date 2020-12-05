@@ -22,7 +22,7 @@ public class Rules {
 	}
 	
 	
-	public boolean featureEnvy(int ATFD, double LAA, int thresholds3, int thresholds4, boolean operador){
+	public boolean featureEnvy(int ATFD, double LAA, int thresholds3, double thresholds4, boolean operador){
 		//true=AND
 		//false=OR
 		if(operador==true) {
