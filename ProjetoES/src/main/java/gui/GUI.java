@@ -15,6 +15,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import data_service.CodeSmells.ReadExcelFile;
+
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import javax.swing.JPopupMenu;
@@ -69,7 +72,7 @@ public class GUI {
 		JButton btnImportExcell = new JButton("Import Excell");
 		btnImportExcell.setBounds(760, 328, 119, 23);
 		btnImportExcell.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {new ReadExcelFile().createTable();
 			}
 		});
 		frame.getContentPane().setLayout(null);
