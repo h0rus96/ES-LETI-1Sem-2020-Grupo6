@@ -20,6 +20,9 @@ import javax.swing.border.TitledBorder;
 import data_service.CodeSmells.QualityIndicators;
 import data_service.CodeSmells.ReadExcelFile;
 import data_service.CodeSmells.SourceCode;
+import results_table.ResultsTable;
+import results_text.ResultsText;
+
 import javax.swing.JTextField;
 import java.awt.GridLayout;
 import javax.swing.JPopupMenu;
@@ -156,6 +159,10 @@ public class GUI {
 			public void actionPerformed(ActionEvent e) {
 				QualityIndicators ins = new QualityIndicators();
 				int[] qi = ins.analyseQI(sc);
+				ResultsTable rtbl = new ResultsTable(qi);
+				rtbl.buildTable();
+				ResultsText rtxt = new ResultsText(qi);
+				rtxt.buildTable();
 			}
 		});
 		frame.getContentPane().add(btnScanCode);
