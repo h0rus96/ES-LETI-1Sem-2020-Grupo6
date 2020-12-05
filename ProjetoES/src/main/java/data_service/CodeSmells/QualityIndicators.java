@@ -2,20 +2,15 @@ package data_service.CodeSmells;
 
 public class QualityIndicators {
 
-	public static void main(String[] args) {
-		
-		QualityIndicators ins = new QualityIndicators();
-		//System.out.println(ins.analyseQI(sc));
-	}
+	
 	
 	public int[] analyseQI(SourceCode[] scarray){
-		int[] qi = new int[12];
-		for(int i=0; i<scarray.length; i++){
-			qi = qiiPlasma(qi, scarray[i]);
-			qi = qiPMD(qi, scarray[i]);
-			
+		int[] qiarray = new int[12];
+		for(int i = 0; i<scarray.length; i++){
+			qiarray = qiiPlasma(qiarray, scarray[i]);
+			qiarray = qiPMD(qiarray, scarray[i]);
 		}
-		return qi;
+		return qiarray;
 	}
 	
 	private int[] qiiPlasma(int[] qi, SourceCode sc){
