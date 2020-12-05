@@ -15,15 +15,38 @@ import javax.swing.JTextArea;
  */
 public class ResultsText {
 
-	private int[] resultsList;
+	private int[][] resultsList;
 	private String[] booltype = {"DCI", "DII", "ADCI", "ADII"};
 	private String[] program = {"iPlasma", "PMD", "Custom_Rules"};
 	private JTextArea textarea = new JTextArea();
 	
 	
 	public ResultsText(int[] resultsList) {
-		this.resultsList = resultsList;
+		this.resultsList = convertTo2DMatrix(resultsList);
 		textarea.setEditable(false);
+	}
+	
+	private int[][] convertTo2DMatrix(int[] resultsList2) {
+		int[][] matrix = new int[3][4];
+		int counter=0;
+		
+        for(int i=0;i<3;i++) {
+        	
+            for(int j=0;j<4;j++) {
+            	
+                if(counter==resultsList2.length) break;
+
+                matrix[i][j]=resultsList2[counter];
+
+            System.out.printf("matrix[%d][%d]= %d\n",i,j,matrix[i][j]);
+
+            counter++;
+
+            }
+
+        }
+		
+		return matrix;
 	}
 	
 	
@@ -49,7 +72,7 @@ public class ResultsText {
 			
 			for(int type = 0; type != booltype.length; type++) {
 				
-				textarea.append(" - " + booltype[type] + ": " + 0 + "\n");	
+				textarea.append(" - " + booltype[type] + ": " + resultsList[prog][type] + "\n");
 				
 			}
 			
@@ -73,3 +96,4 @@ public class ResultsText {
 	}
 
 }
+
