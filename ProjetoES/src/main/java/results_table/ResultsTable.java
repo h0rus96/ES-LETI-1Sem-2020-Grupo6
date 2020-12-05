@@ -12,7 +12,7 @@ public class ResultsTable {
 
 	private JTable table;
 	private JPanel panel = new JPanel();
-	private String[] columns = {"Indicador", "iPlasma", "PMD", "Custom_Rules"};
+	private String[] columns = {"Indicador", "iPlasma", "PMD", "Th-Long Method", "Th-Feature Envy"};
 	private String[] lines = {"DCI", "DII", "ADCI", "ADII"};
 	private int[][] resultsList;
 	private DefaultTableModel model = new DefaultTableModel(columns, 4);;
@@ -24,10 +24,10 @@ public class ResultsTable {
 	
 	
 	private int[][] convertTo2DMatrix(int[] resultsList2) {
-		int[][] matrix = new int[3][4];
+		int[][] matrix = new int[4][4];
 		int counter=0;
 		
-        for(int i=0;i<3;i++) {
+        for(int i=0;i<4;i++) {
         	
             for(int j=0;j<4;j++) {
             	
@@ -61,17 +61,14 @@ public class ResultsTable {
 	}
 	
 	
-	//Falta Indicadores
 	private void addResults() {
 		for(int row = 0; row != model.getRowCount(); row++) {
-			
 			System.out.println(lines[row]);			
 			model.setValueAt(lines[row], row, 0);
 			
-			for(int column = 1; column != model.getRowCount(); column++) {
-				
-				model.setValueAt(resultsList[column-1][row], row, column);
-				
+			for(int column = 1; column != model.getColumnCount(); column++) {
+				System.out.println(column);
+				model.setValueAt(resultsList[column-1][row], row, column);				
 			}
 		}
 		
@@ -85,7 +82,7 @@ public class ResultsTable {
 	
 	
 	public static void main(String[] args)  {
-		ResultsTable resultstable = new ResultsTable(new int[]{0,1,2,3,10,11,21,31,20,12,22,32,30,13,23,33});
+		ResultsTable resultstable = new ResultsTable(new int[]{0,1,2,3,10,11,12,13,20,21,22,23,30,31,32,33});
 		resultstable.buildTable();
 	}
 }
