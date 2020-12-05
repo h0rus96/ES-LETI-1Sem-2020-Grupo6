@@ -10,7 +10,6 @@ public class Rules {
 			}
 			return false;
 		}
-		
 		if(operador==false) {
 			if(LOC>thresholds1 || CYCLO>thresholds2) {
 				return true;
@@ -30,7 +29,6 @@ public class Rules {
 			}
 			return false;
 		}
-		
 		if(operador==false) {
 			if(ATFD>thresholds3 || LAA>thresholds4) {
 				return true;
