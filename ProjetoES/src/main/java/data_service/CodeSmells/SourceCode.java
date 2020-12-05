@@ -74,6 +74,7 @@ public class SourceCode {
 	public void setLAA(Cell cell) {
 		LAA = cell;
 	}
+	
 	public boolean getIs_long_method() {
 		return is_long_method.getBooleanCellValue();
 	}
