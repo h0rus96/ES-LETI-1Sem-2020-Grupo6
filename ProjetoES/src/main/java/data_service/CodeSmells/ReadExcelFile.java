@@ -89,7 +89,7 @@ public class ReadExcelFile
 	}  
 
 	public JTable getTable(JTable jt) {
-		String[] cols = {"MethodID", "package", "class", "method", "LOC", "CYCLO", "ATFD", "LAA","is_long_method","iPlasma","PMD","is_feature_envy"};
+		String[] cols = {"MethodID", "package", "class", "method", "LOC", "CYCLO", "ATFD", "LAA","is_long_method","iPlasma","PMD","is_feature_envy","is_long_method_TH","is_feature_envy_TH"};
 		DefaultTableModel model = new DefaultTableModel(cols, 0);
 		jt=new JTable(model);
 		for(SourceCode c:getExcelValuesToAnArray()) {
@@ -105,8 +105,10 @@ public class ReadExcelFile
 			boolean data10=c.getiPlasma();
 			boolean data11=c.getPMD();
 			boolean data12=c.getIs_featue_envy();
-
-			Object[] row = {data1, data2, data3, data4, data5, data6, data7, data8,data9,data10,data11,data12};
+			boolean data13=c.getIs_long_method_th();
+			boolean data14=c.getIs_feature_envy_th();
+			
+			Object[] row = {data1, data2, data3, data4, data5, data6, data7, data8,data9,data10,data11,data12,data13,data14};
 			model.addRow(row);
 		}
 
