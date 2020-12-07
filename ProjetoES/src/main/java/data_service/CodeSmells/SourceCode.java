@@ -18,6 +18,14 @@ public class SourceCode {
 	private Cell iPlasma;
 	private Cell PMD;
 	private Cell is_feature_envy;
+	
+	private boolean is_long_method_th;
+	private boolean is_feature_envy_th;
+	
+	public SourceCode() {
+		this.is_long_method_th=false;
+		this.is_feature_envy_th=false;
+	}
 	public int getMethodID() {
 		return MethodID;
 	}
@@ -100,6 +108,18 @@ public class SourceCode {
 		this.is_feature_envy = is_featue_envy;
 	}
 	
+	public boolean getIs_long_method_th() {
+		return is_long_method_th;
+	}
+	public void setIs_long_method_th(boolean is_long_method_th) {
+		this.is_long_method_th = is_long_method_th;
+	}
+	public boolean getIs_feature_envy_th() {
+		return is_feature_envy_th;
+	}
+	public void setIs_feature_envy_th(boolean is_feature_envy_th) {
+		this.is_feature_envy_th = is_feature_envy_th;
+	}
 	public String toString() {
 		return MethodID+" "+pkg+" "+clss+" "+method+" "+LOC+" "+CYClO+" "+ATFD+" "+LAA+" "+is_long_method+" "+iPlasma+" "+PMD+" "+is_feature_envy;
 	}
