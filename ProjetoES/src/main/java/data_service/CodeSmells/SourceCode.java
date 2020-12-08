@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 import org.apache.poi.ss.usermodel.Cell;
 /**
-* SourceCode is an object to identify the piece of code were studying.
+* SourceCode is an object to identify and specify the parameters of the piece of code were studying.
 * 
 * 
 * @author jffss-iscte
