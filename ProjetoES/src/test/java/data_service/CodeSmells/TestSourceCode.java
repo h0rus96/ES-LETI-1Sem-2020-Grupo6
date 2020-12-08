@@ -17,7 +17,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author pcmee
+ * @author ES-LETI-1Sem-2020-Grupo6
  *
  */
 class TestSourceCode {

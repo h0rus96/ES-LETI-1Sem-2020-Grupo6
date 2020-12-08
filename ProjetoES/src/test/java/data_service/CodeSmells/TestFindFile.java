@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author pedro
+ * @author ES-LETI-1Sem-2020-Grupo6
  *
  */
 class TestFindFile {
