@@ -138,7 +138,7 @@ public class ReadExcelFile
 		ReadExcelFile ref=new ReadExcelFile();
 		//SourceCode[] sca=ref.getExcelValuesToAnArray();
 		//		for(int i=0;i<ref.getRownCount()-1;i++) {
-		//			System.out.println(sca[i].toString());
+		//			System.out.println(sca[i]. ());
 		//		}
 		//		System.out.println(sca[16].getIs_featue_envy());
 		ref.createTable();
