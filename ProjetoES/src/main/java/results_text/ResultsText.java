@@ -79,7 +79,7 @@ public class ResultsText {
 	}
 	
 	/**
-	 * Ponto de entrada para a criação do JFrame com TextArea
+	 * Ponto de entrada para a criação do JFrame com JTable
 	 */
 	public void buildTable() {
 		addResults();	
