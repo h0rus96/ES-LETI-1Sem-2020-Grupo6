@@ -170,6 +170,10 @@ public class GUI {
 				int CYCLOTH;
 				int ATFDTH;
 				int LAATH;
+				boolean ANDLM;
+				boolean ORLM;
+				boolean ANDFE;
+				boolean ORFE;
 
 				LM = chckbxLongMethod.isSelected();
 				FE = chckbxFeatureEnvy.isSelected();
@@ -181,6 +185,10 @@ public class GUI {
 				ATFDTH = Integer.parseInt(textField_3.getText());
 				LAA = chckbxLAA.isSelected();
 				LAATH = Integer.parseInt(textField_2.getText());
+				ANDLM = rdbtnAnd1.isSelected();
+				ORLM = rdbtnOr1.isSelected();
+				ANDFE = rdbtnAnd2.isSelected();
+				ORFE = rdbtnOr2.isSelected();
 
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
