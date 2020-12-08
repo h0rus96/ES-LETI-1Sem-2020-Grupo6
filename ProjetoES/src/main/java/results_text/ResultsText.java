@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
- * @author pedro
+ * @author ES-LETI-1Sem-2020-Grupo6
  *
  */
 public class ResultsText {
@@ -21,79 +21,69 @@ public class ResultsText {
 	private JTextArea textarea = new JTextArea();
 	
 	
+	/**
+	 * Construtor ResultsText com o Array de resultados a apresentar.
+	 *  
+	 * @param resultsList Array de inteiros a apresentar num Jpanel
+	 */
 	public ResultsText(int[] resultsList) {
 		this.resultsList = convertTo2DMatrix(resultsList);
 		textarea.setEditable(false);
 	}
 	
+	
+	/**
+	 * Transforma o Array de resultados numa Matriz 4x4
+	 *  
+	 * @param resultsList Array de inteiros com length = 12
+	 * @return matrix Matriz 4x4 a ser apresentada em texto
+	 */
 	private int[][] convertTo2DMatrix(int[] resultsList2) {
 		int[][] matrix = new int[4][4];
-		int counter=0;
-		
-        for(int i=0;i<4;i++) {
-        	
-            for(int j=0;j<4;j++) {
-            	
+		int counter=0;	
+        for(int i=0;i<4;i++) {     	
+            for(int j=0;j<4;j++) {         	
                 if(counter==resultsList2.length) break;
-
                 matrix[i][j]=resultsList2[counter];
-
             System.out.printf("matrix[%d][%d]= %d\n",i,j,matrix[i][j]);
-
             counter++;
-
             }
-
-        }
-		
+        }		
 		return matrix;
 	}
 	
-	
+	/**
+	 * Cria a JFrame
+	 */
 	private void showTable() {
-		JFrame frame = new JFrame("Results Text");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		JFrame frame = new JFrame("Results Text");		
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
-		panel.add(textarea);
-		
+		panel.add(textarea);		
 		frame.add(panel);
 		frame.pack();
 		frame.setVisible(true);
 	}
 
-	
+	/**
+	 * Transforma a Matriz de resultados no formato de texto
+	 */
 	private void addResults() {
-		
 		for(int prog = 0; prog != program.length; prog++) {
-			
 			textarea.append(program[prog] + ":\n");
-			
 			for(int type = 0; type != booltype.length; type++) {
-				
-				textarea.append(" - " + booltype[type] + ": " + resultsList[prog][type] + "\n");
-				
+				textarea.append(" - " + booltype[type] + ": " + resultsList[prog][type] + "\n");	
 			}
-			
 			textarea.append("\n");
 		}
 	}
 	
-	
+	/**
+	 * Ponto de entrada para a criação do JFrame com TextArea
+	 */
 	public void buildTable() {
 		addResults();	
 		showTable();
 	}
-	
-	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		ResultsText text = new ResultsText(new int[]{0,1,2,3,10,11,12,13,20,21,22,23,30,31,32,33});
-		text.buildTable();
-	}
-
 }
 
