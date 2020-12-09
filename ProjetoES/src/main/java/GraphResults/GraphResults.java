@@ -53,7 +53,7 @@ public class GraphResults  {
 		this.adci_TH_FE=arr[14];
 		this.adii_TH_FE=arr[15];
 	}
-	private void createGraph() {
+	public void createGraph() {
 
 		JFrame graph=new JFrame();
 		CategoryDataset dataset = createDataset();

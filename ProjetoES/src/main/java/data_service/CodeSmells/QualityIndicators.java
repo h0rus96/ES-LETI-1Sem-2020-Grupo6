@@ -89,18 +89,18 @@ public class QualityIndicators {
 	 * @return Array de inteiros recebido como parâmetro (qi), acrescentado com o Indicador de Qualidade da nossa ferramenta (Long Method) quanto ao parâmetro sc recebido.
 	 */
 	private int[] qiTh_LM(int[] qi, SourceCode sc){
-//		if(sc.getTh_LM() == true && sc.getIs_long_method() == true){
-//			qi[8]++;
-//		}
-//		if(sc.getTh_LM() == true && sc.getIs_long_method() == false){
-//			qi[9]++;
-//		}
-//		if(sc.getTh_LM() == false && sc.getIs_long_method() == false){
-//			qi[10]++;
-//		}
-//		if(sc.getTh_LM() == false && sc.getIs_long_method() == true){
-//			qi[11]++;
-//		}
+		if(sc.getIs_long_method_th() == true && sc.getIs_long_method() == true){
+			qi[8]++;
+		}
+		if(sc.getIs_long_method_th() == true && sc.getIs_long_method() == false){
+			qi[9]++;
+		}
+		if(sc.getIs_long_method_th() == false && sc.getIs_long_method() == false){
+			qi[10]++;
+		}
+		if(sc.getIs_long_method_th() == false && sc.getIs_long_method() == true){
+			qi[11]++;
+		}
 		return qi;
 	}
 	
@@ -115,18 +115,18 @@ public class QualityIndicators {
 	 * @return Array de inteiros recebido como parâmetro (qi), acrescentado com o Indicador de Qualidade da nossa ferramenta (Feature Envy) quanto ao parâmetro sc recebido.
 	 */
 	private int[] qiTh_FE(int[] qi, SourceCode sc){
-//		if(sc.getTh_FE() == true && sc.getIs_featue_envy() == true){
-//			qi[12]++;
-//		}
-//		if(sc.getTh_FE() == true && sc.getIs_featue_envy() == false){
-//			qi[13]++;
-//		}
-//		if(sc.getTh_FE() == false && sc.getIs_featue_envy() == false){
-//			qi[14]++;
-//		}
-//		if(sc.getTh_FE() == false && sc.getIs_featue_envy() == true){
-//			qi[15]++;
-//		}
+		if(sc.getIs_feature_envy_th() == true && sc.getIs_featue_envy() == true){
+			qi[12]++;
+		}
+		if(sc.getIs_feature_envy_th() == true && sc.getIs_featue_envy() == false){
+			qi[13]++;
+		}
+		if(sc.getIs_feature_envy_th() == false && sc.getIs_featue_envy() == false){
+			qi[14]++;
+		}
+		if(sc.getIs_feature_envy_th() == false && sc.getIs_featue_envy() == true){
+			qi[15]++;
+		}
 		return qi;
 	}
 	
