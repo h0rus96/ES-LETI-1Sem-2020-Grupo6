@@ -16,6 +16,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import GraphResults.GraphResults;
 import data_service.CodeSmells.QualityIndicators;
 import data_service.CodeSmells.ReadExcelFile;
 import data_service.CodeSmells.SourceCode;
@@ -232,6 +233,8 @@ public class GUI {
 				rtbl.buildTable();
 				ResultsText rtxt = new ResultsText(qi);
 				rtxt.buildTable();
+				GraphResults rgrph = new GraphResults(qi);
+				rgrph.createGraph();
 			}
 		});
 		frame.getContentPane().add(btnScanCode);
