@@ -189,6 +189,8 @@ public class GUI {
 				ORLM = rdbtnOr1.isSelected();
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
+				
+				
 
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
