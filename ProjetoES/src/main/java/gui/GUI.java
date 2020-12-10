@@ -199,7 +199,7 @@ public class GUI {
 				
 
 				for (SourceCode sourcecode : sc) {
-					Rules regras = new Rules();
+					Rules regras = new Rules(sourcecode);
 					if (LM = true) {
 						if (ANDLM = true) {
 							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
