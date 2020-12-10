@@ -15,27 +15,115 @@ import java.awt.Color;
 
 
 import data_service.CodeSmells.*;
-
+/**
+* Graph Results to compare obtained results.
+* 
+* 
+* @author jffss-iscte
+* 
+*/
 public class GraphResults  {
-
+	
+	/**
+	 * Number of DCI's for iPlasma
+	 */
+	
 	private int dci_iP;
+	
+	/**
+	 * Number of DII's for iPlasma
+	 */
+	
 	private int dii_iP;
+	
+	/**
+	 * Number of ADCI's for iPlasma
+	 */
+	
 	private int adci_iP;
+	
+	/**
+	 * Number of ADII's for iPlasma
+	 */
+	
 	private int adii_iP;
+	
+	/**
+	 * Number of DCI's for PMD
+	 */
+	
 	private int dci_PMD;
+	
+	/**
+	 * Number of DII's for PMD
+	 */
+	
 	private int dii_PMD;
+	
+	/**
+	 * Number of ADCI's for PMD
+	 */
+	
 	private int adci_PMD;
+	
+	/**
+	 * Number of ADII's for PMD
+	 */
+	
 	private int adii_PMD;
+	
+	/**
+	 * Number of DCI's for long method´s thresholds
+	 */
+	
 	private int dci_TH_LM;
+	
+	/**
+	 * Number of DII's for long method´s thresholds
+	 */
+	
 	private int dii_TH_LM;
+	
+	/**
+	 * Number of ADCI's for long method´s thresholds
+	 */
+	
 	private int adci_TH_LM;
+	
+	/**
+	 * Number of ADII's for long method´s thresholds
+	 */
+	
 	private int adii_TH_LM;
+	
+	/**
+	 * Number of ADCI's for feature envy's thresholds
+	 */
+	
 	private int dci_TH_FE;
+	
+	/**
+	 * Number of DII's for feature envy's thresholds
+	 */
+	
 	private int dii_TH_FE;
+	
+	/**
+	 * Number of ADCI's for feature envy's thresholds
+	 */
+	
 	private int adci_TH_FE;
+	
+	/**
+	 * Number of ADII's for feature envy's thresholds
+	 */
+	
 	private int adii_TH_FE;
 
+	
+	
 	public GraphResults(int arr[]) {
+		
 		this.dci_iP=arr[0];
 		this.dii_iP=arr[1];
 		this.adci_iP=arr[2];
@@ -53,7 +141,15 @@ public class GraphResults  {
 		this.adci_TH_FE=arr[14];
 		this.adii_TH_FE=arr[15];
 	}
-	public void createGraph() {
+	
+	/**
+	 * <p>Creates the graphic for indicators comparing.
+	 * </p>
+	 * 
+	 *
+	 */
+	
+	private void createGraph() {
 
 		JFrame graph=new JFrame();
 		CategoryDataset dataset = createDataset();
@@ -71,7 +167,12 @@ public class GraphResults  {
 		graph.setSize(500, 500);
 		graph.setVisible(true);
 	}
-
+	/**
+	 * <p>Puts the right values into the graph.
+	 * </p>
+	 * 
+	 *
+	 */
 	private CategoryDataset createDataset() {
 
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -125,11 +226,6 @@ public class GraphResults  {
 
 		return barChart;
 	}
-	public static void main(String[] args) {
-		QualityIndicators qi=new QualityIndicators();
-		ReadExcelFile ref=new ReadExcelFile();
-		GraphResults ex=new GraphResults(qi.analyseQI(ref.getExcelValuesToAnArray()));
-		ex.createGraph();
-	}
+	
 
 }
