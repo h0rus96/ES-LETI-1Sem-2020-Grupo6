@@ -25,6 +25,7 @@ class TestReadExcelFile {
 	private static XSSFWorkbook testWorkBook;
 	private static XSSFSheet sheet;
 	private static ReadExcelFile ref;
+	private static SourceCode[] sctest;
 	private static int rowcount;
 
 	/**
@@ -38,12 +39,13 @@ class TestReadExcelFile {
 			FileInputStream fis = new FileInputStream(file);
 			testWorkBook = new XSSFWorkbook(fis);
 			sheet = testWorkBook.getSheetAt(0);
-			rowcount = sheet.getLastRowNum()+1;
+			rowcount = sheet.getLastRowNum()+1;			
+			ref.setSheet(sheet);		
+			sctest = ref.getExcelValuesToAnArray();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-
 	}
 	
 
@@ -87,6 +89,15 @@ class TestReadExcelFile {
 	void testCreateTable() {
 		ref.createTable();
 		assertNotNull(ref.table);
+	}
+	
+	/**
+	 * Test method for {@link data_service.CodeSmells.ReadExcelFile#getSourceCode()}.
+	 */
+	@Test
+	void testGetSourceCode() {
+		SourceCode[] result = ref.getSourceCode();
+		assertEquals(sctest.length, result.length);
 	}
 
 }
