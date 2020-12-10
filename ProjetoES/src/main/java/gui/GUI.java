@@ -20,6 +20,7 @@ import GraphResults.GraphResults;
 import data_service.CodeSmells.QualityIndicators;
 import data_service.CodeSmells.ReadExcelFile;
 import data_service.CodeSmells.SourceCode;
+import data_service.Rules.Rules;
 import results_table.ResultsTable;
 import results_text.ResultsText;
 
@@ -190,6 +191,30 @@ public class GUI {
 				ORLM = rdbtnOr1.isSelected();
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
+
+				ReadExcelFile instance = new ReadExcelFile();
+				sc = instance.getExcelValuesToAnArray();
+
+				for (SourceCode sourcecode : sc) {
+					Rules regras = new Rules(sourcecode);
+					if (LM = true) {
+						if (ANDLM = true) {
+							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+						}
+						if (ORLM = true) {
+							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+						}
+					}
+
+					if (FE = true) {
+						if (ANDFE = true) {
+							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+						}
+						if (ORFE = true) {
+							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+						}
+					}
+				}
 
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
