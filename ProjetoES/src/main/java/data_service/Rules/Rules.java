@@ -11,6 +11,11 @@ public class Rules {
 	 *
 	 */
 
+	/**
+	 * 
+	 * @param sc
+	 */
+	
 	public Rules(SourceCode sc) {
 		this.sc = sc;
 	}
@@ -23,7 +28,7 @@ public class Rules {
 	 * @param thresholds1
 	 * @param thresholds2
 	 * @param operador
-	 * @return
+	 * @return boolean
 	 */
 
 	public boolean longMethod(int LOC, int CYCLO, int thresholds1, int thresholds2, boolean operador) {
@@ -53,7 +58,7 @@ public class Rules {
 	 * @param thresholds3
 	 * @param thresholds4
 	 * @param operador
-	 * @return
+	 * @return boolean
 	 */
 
 	public boolean featureEnvy(int ATFD, double LAA, int thresholds3, double thresholds4, boolean operador) {
