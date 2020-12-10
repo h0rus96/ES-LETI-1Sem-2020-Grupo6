@@ -1,77 +1,103 @@
 package data_service.Rules;
 
-import data_service.CodeSmells.SourceCode;
+/**
+ * @author ES-LETI-1Sem-2020-Grupo6
+ *
+ */
 
 public class Rules {
-
-
-	/**
-	 * @author ES-LETI-1Sem-2020-Grupo6
-	 *
-	 */
 
 	public Rules() {
 	}
 
-	/**
-	 * Regra longMethod
-	 * 
-	 * @param LOC
-	 * @param CYCLO
-	 * @param thresholds1
-	 * @param thresholds2
-	 * @param operador
-	 * @return
-	 */
-
-	public boolean longMethod(int LOC, int CYCLO, int thresholds1, int thresholds2, boolean operador) {
-		// true=AND
-		// false=OR
-		if (operador == true) {
-			if (LOC > thresholds1 && CYCLO > thresholds2) {
-				return true;
-			}
+	public boolean longMethodLOC(int LOC, int th1) {
+		if (LOC > th1) {
+			return true;
+		} else {
 			return false;
 		}
-		if (operador == false) {
-			if (LOC > thresholds1 || CYCLO > thresholds2) {
-				return true;
-			}
-			return false;
-		}
-		return false;
 	}
 
-	/**
-	 * Regra featureEnvy
-	 * 
-	 * @param ATFD
-	 * @param LAA
-	 * @param thresholds3
-	 * @param thresholds4
-	 * @param operador
-	 * @return
-	 */
-
-	public boolean featureEnvy(int ATFD, double LAA, int thresholds3, double thresholds4, boolean operador) {
-		// true=AND
-		// false=OR
-		if (operador == true) {
-			if (ATFD > thresholds3 && LAA > thresholds4) {
-				return true;
-			}
+	public boolean longMethodCYCLO(int CYCLO, int th1) {
+		if (CYCLO > th1) {
+			return true;
+		} else {
 			return false;
 		}
-		if (operador == false) {
-			if (ATFD > thresholds3 || LAA > thresholds4) {
-				return true;
-			}
-			return false;
-		}
-		return false;
 	}
 
+	public boolean featureEnvyATFD(int ATFD, int th1) {
+		if (ATFD > th1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean featureEnvyLAA(double LAA, double th1) {
+		if (LAA > th1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean ruleAND(boolean br1, boolean br2) {
+		return (br1 && br2);
+	}
+
+	public boolean ruleOR(boolean br1, boolean br2) {
+		return (br1 || br2);
+	}
 }
+//	public boolean longMethod(int LOC, int CYCLO, int thresholds1, int thresholds2, boolean operador) {
+//		// true=AND
+//		// false=OR
+//		if (operador == true) {
+//			if (LOC > thresholds1 && CYCLO > thresholds2) {
+//				return true;
+//			}
+//			return false;
+//		}
+//		if (operador == false) {
+//			if (LOC > thresholds1 || CYCLO > thresholds2) {
+//				return true;
+//			}
+//			return false;
+//		}
+//		return false;
+//	}
+
+//	/**
+//	 * Regra featureEnvy
+//	 * 
+//	 * @param ATFD
+//	 * @param LAA
+//	 * @param thresholds3
+//	 * @param thresholds4
+//	 * @param operador
+//	 * @return
+//	 */
+
+//	public boolean featureEnvy(int ATFD, double LAA, int thresholds3, double thresholds4, boolean operador) {
+//		// true=AND
+//		// false=OR
+//		if (operador == true) {
+//			if (ATFD > thresholds3 && LAA > thresholds4) {
+//				return true;
+//			}
+//			return false;
+//		}
+//		if (operador == false) {
+//			if (ATFD > thresholds3 || LAA > thresholds4) {
+//				return true;
+//			}
+//			return false;
+//		}
+//		return false;
+//	}
+//
+//}
 
 //		if(LOC>80 && CYCLO>10) {
 //			return true;
