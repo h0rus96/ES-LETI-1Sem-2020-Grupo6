@@ -8,15 +8,41 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicLong;
-
+/**
+* FindFile is a class to facilitate the opening of the excel file through a quick time without having to include it to our project or knowing its directory.
+* 
+* 
+* @author jffss-iscte
+* 
+*/
 public class FindFile {
 
     private static final File   POISONPILL  = new File("");
 
     private static class RunnableDirSearch implements Runnable {
-        private final BlockingQueue<File>   dirQueue;
+    	
+    	/**
+    	 * queue of directories
+    	 */
+    	
+    	private final BlockingQueue<File>   dirQueue;
+    	
+    	/**
+    	 * queue of files
+    	 */
+    	
         private final BlockingQueue<File>   fileQueue;
+        
+        /**
+    	 * Counter .
+    	 */
+        
         private final AtomicLong            count;
+        
+        /**
+    	 * Limiting number.
+    	 */
+        
         private final int                   num;
 
         public RunnableDirSearch(final BlockingQueue<File> dirQueue, final BlockingQueue<File> fileQueue, final AtomicLong count, final int num) {
@@ -25,7 +51,12 @@ public class FindFile {
             this.count = count;
             this.num = num;
         }
-
+        /**
+    	 * <p>Put elements to the queue.
+    	 * </p>
+    	 * 
+    	 *
+    	 */
         @Override
         public void run() {
             try {
@@ -52,7 +83,12 @@ public class FindFile {
                 // file found or error
             }
         }
-
+        /**
+    	 * <p>end the insertion into the queue.
+    	 * </p>
+    	 * 
+    	 *
+    	 */
         private final void end() {
             try {
                 fileQueue.put(POISONPILL);
@@ -69,11 +105,39 @@ public class FindFile {
         }
     }
 
+    /**
+    * SourceCode is an object to identify and specify the parameters of the piece of code were studying.
+    * 
+    * 
+    * @author jffss-iscte
+    * 
+    */
+    
     private static class CallableFileSearch implements Callable<File> {
-        private final BlockingQueue<File>   dirQueue;
-        private final BlockingQueue<File>   fileQueue;
-        private final String                name;
-        private final int                   num;
+       
+    	/**
+    	 * queue of directories
+    	 */
+    	
+    	private final BlockingQueue<File>   dirQueue;
+        
+    	/**
+    	 * queue of files.
+    	 */
+    	
+    	private final BlockingQueue<File>   fileQueue;
+        
+    	/**
+    	 * name of the file
+    	 */
+    	
+    	private final String                name;
+        
+    	/**
+    	 * number of processes running.
+    	 */
+    	
+    	private final int                   num;
 
         public CallableFileSearch(final BlockingQueue<File> dirQueue, final BlockingQueue<File> fileQueue, final String name, final int num) {
             this.dirQueue = dirQueue;
@@ -82,6 +146,13 @@ public class FindFile {
             this.num = num;
         }
 
+        /**
+    	 * <p>Take files from the queue.
+    	 * </p>
+    	 * 
+    	 *
+    	 */
+        
         @Override
         public File call() throws Exception {
             File file = fileQueue.take();
@@ -97,6 +168,13 @@ public class FindFile {
             return null;
         }
 
+        /**
+    	 * <p>Ends the insertion into the queue
+    	 * </p>
+    	 * 
+    	 *
+    	 */
+        
         private final void end() {
             for (int i = 0; i < num; i++) {
                 try {
@@ -107,10 +185,29 @@ public class FindFile {
             }
         }
     }
-
+    
+    /**
+	 * name of the file
+	 */
+    
     private final String        filename;
+   
+    /**
+	 * base directory of the file
+	 */
+    
     private final File          baseDir;
+  
+    /**
+	 * number of processes running.
+	 */
+    
     private final int           concurrency;
+    
+    /**
+	 * counter
+	 */
+    
     private final AtomicLong    count;
 
     public FindFile(final String filename, final File baseDir, final int concurrency) {
@@ -120,6 +217,13 @@ public class FindFile {
         count = new AtomicLong(0);
     }
 
+    /**
+	 * <p>Finds the file.
+	 * </p>
+	 * @return The file we want to find
+	 *
+	 */
+    
     public File find() {
         final ExecutorService ex = Executors.newFixedThreadPool(concurrency + 1);
         final BlockingQueue<File> dirQueue = new LinkedBlockingQueue<File>();
@@ -139,6 +243,13 @@ public class FindFile {
             ex.shutdownNow();
         }
     }
+   
+    /**
+	 * <p>Gets the directory of the file we want to find.
+	 * </p>
+	 * @return the directory of the file
+	 *
+	 */
     
     public String getDir() {
          final FindFile ff = new FindFile(filename, baseDir, 6);
@@ -146,13 +257,5 @@ public class FindFile {
          return f.toString();
     	
     }
-    public static void main(final String[] args) {
-        final String filename = "swi";
-        final File baseDir = new File("C:/");
-        final FindFile ff = new FindFile(filename, baseDir, 6);
-        final long ini = System.currentTimeMillis();
-        final File f = ff.find();
-        final long end = System.currentTimeMillis();
-       // System.out.println(f.toString() + " " + (end - ini) + " ms");
-    }
+    
 }

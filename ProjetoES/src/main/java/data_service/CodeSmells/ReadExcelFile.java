@@ -23,13 +23,52 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ReadExcelFile 
 {  
 
+	/**
+	 * File of the excel file.
+	 */
+	
 	private File file;
+	
+	/**
+	 * Input for the workbook.
+	 */
+	
 	private FileInputStream fis;
+	
+	/**
+	 * Workbook of the excel.
+	 */
+	
 	private XSSFWorkbook wb;
+	
+	/**
+	 * Sheet of the excel file.
+	 */
+	
 	private XSSFSheet sheet;
+	
+	/**
+	 * Row of the excel file.
+	 */
+	
 	private Row row;
+	
+	/**
+	 * Number of rows.
+	 */
+	
 	private int rowCount;
+	
+	/**
+	 * Array of Source Codes.
+	 */
+	
 	private SourceCode[] sc;
+	
+	/**
+	 * Table that have the information of the excel file.
+	 */
+	
 	JTable table;
 
 	public ReadExcelFile() {
@@ -48,13 +87,12 @@ public class ReadExcelFile
 
 	}
 
-	public int getRownCount() {
-		return rowCount;
-	}
-	
-	public SourceCode[] getSourceCode() {
-		return sc;
-	}
+	/**
+	 * <p>Put values from the excel file to the array of Source Codes and returns it .
+	 * </p>
+	 * @return array of Source Codes.
+	 *
+	 */
 
 	public SourceCode[] getExcelValuesToAnArray() {
 		this.rowCount=sheet.getLastRowNum()+1;
@@ -81,14 +119,12 @@ public class ReadExcelFile
 		return sc;
 	}
 
-	public XSSFSheet getSheet() {
-		return sheet;
-	}
-
-	public void setSheet(XSSFSheet sheet) {
-		this.sheet = sheet;
-	}  
-
+	/**
+	 * <p>Put values from the array of Source Codes to the table.
+	 * </p>
+	 * @return The table.
+	 *
+	 */
 	public JTable getTable(JTable jt) {
 		String[] cols = {"MethodID", "package", "class", "method", "LOC", "CYCLO", "ATFD", "LAA","is_long_method","iPlasma","PMD","is_feature_envy","is_long_method_TH","is_feature_envy_TH"};
 		DefaultTableModel model = new DefaultTableModel(cols, 0);
@@ -116,6 +152,14 @@ public class ReadExcelFile
 		return jt;
 
 	}
+	
+	/**
+	 * <p>Creates the table with the excel values and our thresholds rules.
+	 * </p>
+	 * 
+	 *
+	 */
+	
 	public void createTable(){
 		JPanel panel=new JPanel();
 		panel.setLayout(new BorderLayout());
@@ -133,18 +177,49 @@ public class ReadExcelFile
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args)   
-	{  
-
-		ReadExcelFile ref=new ReadExcelFile();
-		//SourceCode[] sca=ref.getExcelValuesToAnArray();
-		//		for(int i=0;i<ref.getRownCount()-1;i++) {
-		//			System.out.println(sca[i].toString());
-		//		}
-		//		System.out.println(sca[16].getIs_featue_envy());
-		ref.createTable();
+	/**
+	 * <p>Gets the incomplete array of Source Codes.
+	 * </p>
+	 * 
+	 *@return array of Source Codes without excel values
+	 */
+	
+	public SourceCode[] getSourceCode() {
+		return sc;
+	}
+	
+	/**
+	 * <p>Gets the number of Rows in the excel file.
+	 * </p>
+	 * 
+	 *@return number of rows
+	 */
+	
+	public int getRownCount() {
+		return rowCount;
 	}
 
+	/**
+	 * <p>Gets the excel sheet.
+	 * </p>
+	 * 
+	 *@return Excel sheet
+	 */
+	
+	public XSSFSheet getSheet() {
+		return sheet;
+	}
+
+	/**
+	 * <p>Sets the excel Sheet.
+	 * </p>
+	 * 
+	 *@param excel sheet
+	 */
+	
+	public void setSheet(XSSFSheet sheet) {
+		this.sheet = sheet;
+	}
 
 
 }  
