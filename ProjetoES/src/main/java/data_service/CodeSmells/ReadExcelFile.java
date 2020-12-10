@@ -95,6 +95,7 @@ public class ReadExcelFile
 	 */
 
 	public SourceCode[] getExcelValuesToAnArray() {
+		this.rowCount=sheet.getLastRowNum()+1;
 		sc=new SourceCode[rowCount-1];
 		for(int i=1;i<rowCount;i++) {
 			row=sheet.getRow(i);
@@ -171,7 +172,7 @@ public class ReadExcelFile
 		panel.add(js);
 		
 		frame.add(panel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500, 500);
 		frame.setVisible(true);
 	}
