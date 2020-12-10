@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 @SuiteDisplayName("JUnit Platform Suite")
-@SelectPackages("data_service")
+@SelectPackages({"data_service","gui","GraphResults","results_table","results_text"})
 
 public class TestSuite {
 

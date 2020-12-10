@@ -186,7 +186,7 @@ class TestSourceCode {
 	@Test
 	void testToString() {
 		System.out.println(sourceCodeTest.toString());
-		assertEquals("0 null Test null 0 0 0 0.0 null null null null", sourceCodeTest.toString());
+		assertEquals("0 null Test null 0 0 0 0.0 null null null null false false", sourceCodeTest.toString());
 	}
 
 }
