@@ -67,7 +67,6 @@ public class GraphResults  {
 		graph.pack();
 		graph.setTitle("Bar chart");
 		graph.setLocationRelativeTo(null);
-		graph.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		graph.setSize(500, 500);
 		graph.setVisible(true);
 	}
@@ -125,11 +124,8 @@ public class GraphResults  {
 
 		return barChart;
 	}
-	public static void main(String[] args) {
-		QualityIndicators qi=new QualityIndicators();
-		ReadExcelFile ref=new ReadExcelFile();
-		GraphResults ex=new GraphResults(qi.analyseQI(ref.getExcelValuesToAnArray()));
-		ex.createGraph();
-	}
+
+	
+	
 
 }

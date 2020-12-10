@@ -56,8 +56,7 @@ public class ReadExcelFile
 		return sc;
 	}
 
-	public SourceCode[] getExcelValuesToAnArray() {
-		this.rowCount=sheet.getLastRowNum()+1;
+	public void setExcelValuesToAnArray() {
 		sc=new SourceCode[rowCount-1];
 		for(int i=1;i<rowCount;i++) {
 			row=sheet.getRow(i);
@@ -78,7 +77,7 @@ public class ReadExcelFile
 
 
 		}
-		return sc;
+		
 	}
 
 	public XSSFSheet getSheet() {
@@ -93,7 +92,8 @@ public class ReadExcelFile
 		String[] cols = {"MethodID", "package", "class", "method", "LOC", "CYCLO", "ATFD", "LAA","is_long_method","iPlasma","PMD","is_feature_envy","is_long_method_TH","is_feature_envy_TH"};
 		DefaultTableModel model = new DefaultTableModel(cols, 0);
 		jt=new JTable(model);
-		for(SourceCode c:getExcelValuesToAnArray()) {
+		System.out.println(sc+" esta aqui");
+		for(SourceCode c:sc) {
 			int data1 = c.getMethodID();
 			String data2 = c.getPkg();
 			String data3 = c.getClss();
@@ -128,7 +128,6 @@ public class ReadExcelFile
 		panel.add(js);
 		
 		frame.add(panel);
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500, 500);
 		frame.setVisible(true);
 	}

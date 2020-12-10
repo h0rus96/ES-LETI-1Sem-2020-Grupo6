@@ -44,7 +44,7 @@ public class GUI {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private SourceCode[] sc;
-
+	ReadExcelFile ref = new ReadExcelFile();
 	/**
 	 * Launch the application.
 	 */
@@ -81,10 +81,20 @@ public class GUI {
 		btnImportExcell.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-
-				ReadExcelFile instance = new ReadExcelFile();
-				instance.createTable();
-				sc = instance.getSourceCode();
+				
+				if(sc!=null) {
+					for(SourceCode cs:sc) {
+						System.out.println(cs.getIs_long_method_th());
+					}
+				}
+				
+				if(sc == null) {
+					
+				ref.setExcelValuesToAnArray();
+				sc=ref.getSourceCode();
+				}
+				ref.createTable();
+				
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -192,14 +202,18 @@ public class GUI {
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
 
-				ReadExcelFile instance = new ReadExcelFile();
-				sc = instance.getExcelValuesToAnArray();
+				
+				
 
 				for (SourceCode sourcecode : sc) {
-					Rules regras = new Rules(sourcecode);
+					Rules regras = new Rules();
 					if (LM = true) {
 						if (ANDLM = true) {
+							
 							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
+							
+						
 						}
 						if (ORLM = true) {
 							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
@@ -215,7 +229,8 @@ public class GUI {
 						}
 					}
 				}
-
+				
+				
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
 //				}

@@ -111,14 +111,14 @@ public class SourceCode {
 	public boolean getIs_long_method_th() {
 		return is_long_method_th;
 	}
-	public void setIs_long_method_th(boolean is_long_method_th) {
-		this.is_long_method_th = is_long_method_th;
+	public void setIs_long_method_th(boolean th) {
+		this.is_long_method_th = th;
 	}
 	public boolean getIs_feature_envy_th() {
 		return is_feature_envy_th;
 	}
-	public void setIs_feature_envy_th(boolean is_feature_envy_th) {
-		this.is_feature_envy_th = is_feature_envy_th;
+	public void setIs_feature_envy_th(boolean th) {
+		this.is_feature_envy_th = th;
 	}
 	public String toString() {
 		return MethodID+" "+pkg+" "+clss+" "+method+" "+LOC+" "+CYClO+" "+ATFD+" "+LAA+" "+is_long_method+" "+iPlasma+" "+PMD+" "+is_feature_envy;
