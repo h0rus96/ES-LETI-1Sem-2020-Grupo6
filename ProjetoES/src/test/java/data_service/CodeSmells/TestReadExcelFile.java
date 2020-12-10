@@ -41,7 +41,7 @@ class TestReadExcelFile {
 			sheet = testWorkBook.getSheetAt(0);
 			rowcount = sheet.getLastRowNum()+1;			
 			ref.setSheet(sheet);		
-			sctest = ref.getExcelValuesToAnArray();
+			ref.setExcelValuesToAnArray();
 			
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -149,7 +149,7 @@ public class GraphResults  {
 	 *
 	 */
 	
-	private void createGraph() {
+	public void createGraph() {
 
 		JFrame graph=new JFrame();
 		CategoryDataset dataset = createDataset();
