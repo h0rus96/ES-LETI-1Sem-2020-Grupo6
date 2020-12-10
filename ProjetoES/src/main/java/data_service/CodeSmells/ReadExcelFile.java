@@ -188,6 +188,17 @@ public class ReadExcelFile
 	}
 	
 	/**
+	 * <p>Updates the array of Source Codes.
+	 * </p>
+	 * 
+	 *@return array of Source Codes without excel values
+	 */
+	
+	public void setSourceCode(SourceCode[] sc) {
+		this.sc=sc;
+	}
+	
+	/**
 	 * <p>Gets the number of Rows in the excel file.
 	 * </p>
 	 * 

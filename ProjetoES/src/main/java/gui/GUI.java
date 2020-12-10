@@ -196,7 +196,6 @@ public class GUI {
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
 
-				ReadExcelFile instance = new ReadExcelFile();
 				
 
 				for (SourceCode sourcecode : sc) {
@@ -209,7 +208,7 @@ public class GUI {
 						if (ORLM = true) {
 						
 							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
-							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ORLM));
+							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
 
 							
 						}
@@ -218,13 +217,17 @@ public class GUI {
 					if (FE = true) {
 						if (ANDFE = true) {
 							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+							sourcecode.setIs_feature_envy_th(regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE));
 						}
 						if (ORFE = true) {
 							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+							sourcecode.setIs_feature_envy_th(regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE));
 						}
 					}
+					
 				}
-
+				ref.setSourceCode(sc);
+				ref.createTable();
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
 //				}
