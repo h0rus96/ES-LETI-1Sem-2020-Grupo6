@@ -94,7 +94,7 @@ public class ReadExcelFile
 	 *
 	 */
 
-	public SourceCode[] getExcelValuesToAnArray() {
+	public void setExcelValuesToAnArray() {
 		this.rowCount=sheet.getLastRowNum()+1;
 		sc=new SourceCode[rowCount-1];
 		for(int i=1;i<rowCount;i++) {
@@ -116,7 +116,6 @@ public class ReadExcelFile
 
 
 		}
-		return sc;
 	}
 
 	/**
@@ -129,7 +128,7 @@ public class ReadExcelFile
 		String[] cols = {"MethodID", "package", "class", "method", "LOC", "CYCLO", "ATFD", "LAA","is_long_method","iPlasma","PMD","is_feature_envy","is_long_method_TH","is_feature_envy_TH"};
 		DefaultTableModel model = new DefaultTableModel(cols, 0);
 		jt=new JTable(model);
-		for(SourceCode c:getExcelValuesToAnArray()) {
+		for(SourceCode c:sc) {
 			int data1 = c.getMethodID();
 			String data2 = c.getPkg();
 			String data3 = c.getClss();
@@ -186,6 +185,17 @@ public class ReadExcelFile
 	
 	public SourceCode[] getSourceCode() {
 		return sc;
+	}
+	
+	/**
+	 * <p>Updates the array of Source Codes.
+	 * </p>
+	 * 
+	 *@return array of Source Codes without excel values
+	 */
+	
+	public void setSourceCode(SourceCode[] sc) {
+		this.sc=sc;
 	}
 	
 	/**

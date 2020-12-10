@@ -34,7 +34,7 @@ class TestQualityIndicators {
 			XSSFWorkbook testWorkBook = new XSSFWorkbook(fis);
 			XSSFSheet sheet = testWorkBook.getSheetAt(0);		
 			ref.setSheet(sheet);		
-			sctest = ref.getExcelValuesToAnArray();
+			 ref.setExcelValuesToAnArray();
 			sctest[0].setIs_feature_envy_th(true);
 			sctest[0].setIs_long_method_th(true);
 			sctest[3].setIs_feature_envy_th(true);

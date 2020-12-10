@@ -44,7 +44,7 @@ public class GUI {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private SourceCode[] sc;
-
+	private ReadExcelFile ref = new ReadExcelFile();
 	/**
 	 * Launch the application.
 	 */
@@ -65,6 +65,7 @@ public class GUI {
 	 * Create the application.
 	 */
 	public GUI() {
+		ref.setExcelValuesToAnArray();
 		initialize();
 	}
 
@@ -82,9 +83,12 @@ public class GUI {
 
 			public void actionPerformed(ActionEvent e) {
 
-				ReadExcelFile instance = new ReadExcelFile();
-				instance.createTable();
-				sc = instance.getSourceCode();
+				if(sc==null) {
+				
+			//	ref.createTable();
+				sc = ref.getSourceCode();
+				}
+				ref.createTable();
 			}
 		});
 		frame.getContentPane().setLayout(null);
@@ -192,30 +196,38 @@ public class GUI {
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
 
-				ReadExcelFile instance = new ReadExcelFile();
-				sc = instance.getExcelValuesToAnArray();
+				
 
 				for (SourceCode sourcecode : sc) {
 					Rules regras = new Rules(sourcecode);
 					if (LM = true) {
 						if (ANDLM = true) {
 							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
 						}
 						if (ORLM = true) {
+						
 							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
+
+							
 						}
 					}
 
 					if (FE = true) {
 						if (ANDFE = true) {
 							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+							sourcecode.setIs_feature_envy_th(regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE));
 						}
 						if (ORFE = true) {
 							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+							sourcecode.setIs_feature_envy_th(regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE));
 						}
 					}
+					
 				}
-
+				ref.setSourceCode(sc);
+				ref.createTable();
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
 //				}
