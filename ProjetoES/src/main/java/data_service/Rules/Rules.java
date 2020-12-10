@@ -15,7 +15,7 @@ public class Rules {
 	 * 
 	 * @param sc
 	 */
-	
+
 	public Rules(SourceCode sc) {
 		this.sc = sc;
 	}
