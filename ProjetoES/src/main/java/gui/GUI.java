@@ -19,6 +19,7 @@ import javax.swing.border.TitledBorder;
 import data_service.CodeSmells.QualityIndicators;
 import data_service.CodeSmells.ReadExcelFile;
 import data_service.CodeSmells.SourceCode;
+import data_service.Rules.Rules;
 import results_table.ResultsTable;
 import results_text.ResultsText;
 
@@ -189,8 +190,26 @@ public class GUI {
 				ORLM = rdbtnOr1.isSelected();
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
-				
-				
+
+				Rules regras = new Rules();
+
+				if (LM = true) {
+					if (ANDLM = true) {
+						regras.longMethod(LOC, CYCLO, LOCTH, CYCLOTH, ANDLM);
+					}
+					if (ORLM = true) {
+						regras.longMethod(LOC, CYCLO, LOCTH, CYCLOTH, ANDLM);
+					}
+				}
+
+				if (FE = true) {
+					if (ANDFE = true) {
+						regras.featureEnvy(ATFD, LAA, ATFDTH, LAATH, ANDFE);
+					}
+					if (ORFE = true) {
+						regras.featureEnvy(ATFD, LAA, ATFDTH, LAATH, ANDFE);
+					}
+				}
 
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
