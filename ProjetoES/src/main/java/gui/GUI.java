@@ -191,23 +191,27 @@ public class GUI {
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
 
-				Rules regras = new Rules();
+				ReadExcelFile instance = new ReadExcelFile();
+				sc = instance.getExcelValuesToAnArray();
 
-				if (LM = true) {
-					if (ANDLM = true) {
-						regras.longMethod(LOC, CYCLO, LOCTH, CYCLOTH, ANDLM);
+				for (SourceCode sourcecode : sc) {
+					Rules regras = new Rules(sourcecode);
+					if (LM = true) {
+						if (ANDLM = true) {
+							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+						}
+						if (ORLM = true) {
+							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+						}
 					}
-					if (ORLM = true) {
-						regras.longMethod(LOC, CYCLO, LOCTH, CYCLOTH, ANDLM);
-					}
-				}
 
-				if (FE = true) {
-					if (ANDFE = true) {
-						regras.featureEnvy(ATFD, LAA, ATFDTH, LAATH, ANDFE);
-					}
-					if (ORFE = true) {
-						regras.featureEnvy(ATFD, LAA, ATFDTH, LAATH, ANDFE);
+					if (FE = true) {
+						if (ANDFE = true) {
+							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+						}
+						if (ORFE = true) {
+							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+						}
 					}
 				}
 

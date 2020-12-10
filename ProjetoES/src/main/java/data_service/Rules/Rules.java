@@ -1,11 +1,19 @@
 package data_service.Rules;
 
+import data_service.CodeSmells.SourceCode;
+
 public class Rules {
+
+	private SourceCode sc;
 
 	/**
 	 * @author ES-LETI-1Sem-2020-Grupo6
 	 *
 	 */
+
+	public Rules(SourceCode sc) {
+		this.sc = sc;
+	}
 
 	/**
 	 * Regra longMethod
@@ -33,6 +41,7 @@ public class Rules {
 			}
 			return false;
 		}
+		sc.setIs_long_method_th(longMethod(LOC, CYCLO, thresholds1, thresholds2, operador));
 		return false;
 	}
 
@@ -62,6 +71,7 @@ public class Rules {
 			}
 			return false;
 		}
+		sc.setIs_feature_envy_th(featureEnvy(ATFD, LAA, thresholds3, thresholds4, operador));
 		return false;
 	}
 
