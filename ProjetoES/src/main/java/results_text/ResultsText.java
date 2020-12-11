@@ -33,7 +33,7 @@ public class ResultsText {
 	
 	
 	/**
-	 * Transforma o Array de resultados numa Matriz 4x4
+	 * Transforma o Array de int numa Matriz 4x4.
 	 *  
 	 * @param resultsList Array de inteiros com length = 12
 	 * @return matrix Matriz 4x4 a ser apresentada em texto
@@ -45,7 +45,6 @@ public class ResultsText {
             for(int j=0;j<4;j++) {         	
                 if(counter==resultsList2.length) break;
                 matrix[i][j]=resultsList2[counter];
-            System.out.printf("matrix[%d][%d]= %d\n",i,j,matrix[i][j]);
             counter++;
             }
         }		
@@ -53,7 +52,7 @@ public class ResultsText {
 	}
 	
 	/**
-	 * Cria a JFrame
+	 * Cria a JFrame com os dados fornecidos no construtor.
 	 */
 	private void showTable() {
 		JFrame frame = new JFrame("Results Text");		
@@ -61,12 +60,12 @@ public class ResultsText {
 		panel.setLayout(new BorderLayout());
 		panel.add(textarea);		
 		frame.add(panel);
-		frame.pack();
+		frame.setSize(200, 450);
 		frame.setVisible(true);
 	}
 
 	/**
-	 * Transforma a Matriz de resultados no formato de texto
+	 * Transforma a Matriz de resultados no formato de texto para apresentar na JTextArea.
 	 */
 	private void addResults() {
 		for(int prog = 0; prog != program.length; prog++) {
@@ -79,7 +78,7 @@ public class ResultsText {
 	}
 	
 	/**
-	 * Ponto de entrada para a criação do JFrame com JTable
+	 * Ponto de entrada para a criação do JFrame com JTextArea e o array de resultados fornecidos no construtor.
 	 */
 	public void buildTable() {
 		addResults();	
