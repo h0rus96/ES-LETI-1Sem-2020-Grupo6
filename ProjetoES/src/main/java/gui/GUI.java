@@ -184,7 +184,7 @@ public class GUI {
 
 				LM = chckbxLongMethod.isSelected();
 				FE = chckbxFeatureEnvy.isSelected();
-				LOC = chckbxFeatureEnvy.isSelected();
+				LOC = chckbxLOC.isSelected();
 				LOCTH = Integer.parseInt(textField.getText());
 				CYCLO = chckbxCYCLO.isSelected();
 				CYCLOTH = Integer.parseInt(textField_1.getText());
@@ -200,73 +200,69 @@ public class GUI {
 				ReadExcelFile instance = new ReadExcelFile();
 
 				Rules regras = new Rules();
-				
-				
-//				if (LM = true) {
-//					if (ANDLM = true) {
-//						for (SourceCode sourcecode : sc) {
-//							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
-//							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(),
-//									sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
-//						}
-//					}
-//					if (ORLM = true) {
-//						for (SourceCode sourcecode : sc) {
-//							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
-//							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(),
-//									sourcecode.getCYCLO(), LOCTH, CYCLOTH, ORLM));
-//						}
-//					}
-//				}
-//
-//				if (FE = true) {
-//					if (ANDFE = true) {
-//						for (SourceCode sourcecode : sc) {
-//							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
-//						}
-//					}
-//					if (ORFE = true) {
-//						for (SourceCode sourcecode : sc) {
-//							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
-//						}
-//					}
-//				}
 
-//				if (chckbxLongMethod.isSelected() == true) {
-//					LM = true;
-//				}
-//				if (chckbxFeatureEnvy.isSelected() == true) {
-//					FE = true;
-//				}
-//				if (chckbxLOC.isSelected() == true) {
-//					LOC = true;
-//					LOC1 = textField.getText();
-//				}
-//				if (chckbxCYCLO.isSelected() == true) {
-//					CYCLO = true;
-//					CYCLO1 = textField_1.getText();
-//				}
-//				if (chckbxATFD.isSelected() == true) {
-//					ATFD = true;
-//					ATFD1 = textField_3.getText();
-//				}
-//				if (chckbxLAA.isSelected() == true) {
-//					LAA = true;
-//					LAA1 = textField_2.getText();
-//				}
+				// LongMethod
+				if (LM == true) {
+					if (LOC && !CYCLO) {
+						for (SourceCode sourcecode : sc) {
+							sourcecode.setIs_long_method_th(regras.longMethodLOC(sourcecode.getLOC(), LOCTH));
+						}
+					}
+					if (!LOC && CYCLO) {
+						for (SourceCode sourcecode : sc) {
+							sourcecode.setIs_long_method_th(regras.longMethodCYCLO(sourcecode.getCYCLO(), CYCLOTH));
+						}
+					}
+					if (LOC && CYCLO) {
+						if (ANDLM) {
+							for (SourceCode sourcecode : sc) {
+								sourcecode.setIs_long_method_th(
+										regras.ruleAND(regras.longMethodLOC(sourcecode.getLOC(), LOCTH),
+												regras.longMethodCYCLO(sourcecode.getCYCLO(), CYCLOTH)));
+							}
+						}
+						if (ORLM) {
+							for (SourceCode sourcecode : sc) {
+								sourcecode.setIs_long_method_th(
+										regras.ruleOR(regras.longMethodLOC(sourcecode.getLOC(), LOCTH),
+												regras.longMethodCYCLO(sourcecode.getCYCLO(), CYCLOTH)));
+							}
+						}
+					}
+				}
 
-//No GUI, tens de ir buscar se o botao que queres tá ligado ou não e meter isso num boolean
-//E ir buscar os thresholds dos botoes que tao ligados e meter isso em variaveis int
-//E dps com isso chamar os metodos das regras
-//Isso tem de estar dentro do botao scan code, antes do que eu lá pus para os indicadores de qualidade
+				// FeatureEnvy
+				if (FE == true) {
+					if (ATFD && !LAA) {
+						for (SourceCode sourcecode : sc) {
+							sourcecode.setIs_feature_envy_th(regras.featureEnvyATFD(sourcecode.getATFD(), ATFDTH));
+						}
+					}
+					if (!ATFD && LAA) {
+						for (SourceCode sourcecode : sc) {
+							sourcecode.setIs_feature_envy_th(regras.featureEnvyLAA(sourcecode.getLAA(), LAATH));
+						}
+					}
+					if (ATFD && LAA) {
+						if (ANDFE) {
+							for (SourceCode sourcecode : sc) {
+								sourcecode.setIs_feature_envy_th(
+										regras.ruleAND(regras.featureEnvyATFD(sourcecode.getATFD(), ATFDTH),
+												regras.featureEnvyLAA(sourcecode.getLAA(), LAATH)));
+							}
+						}
+						if (ORFE) {
+							for (SourceCode sourcecode : sc) {
+								sourcecode.setIs_feature_envy_th(
+										regras.ruleOR(regras.featureEnvyATFD(sourcecode.getATFD(), ATFDTH),
+												regras.featureEnvyLAA(sourcecode.getLAA(), LAATH)));
+							}
+						}
+					}
+				}
 
-//btnScanCode tem lá um método que tudo o q tá lá dentro acontece qnd é premido, o action listener ou algo do genero
-//Aí dentro, por cima do que já lá está, vais mexer tu
-//Primeiro vais meter em variaveis boolean os botoes (true se tiverem o certinho, false se não tiverem)
-//E depois vais buscar os numeros que estarias inseridos nos sitios onde estariam os thresholds e metes esses valores em ints
-
-//Sim, pq cada vez que vamos scannar o code temos de atualizar isso tudo
-//E depois de ter isso tudo em variaveis, usas os booleans em if's e usa-los para chamar os metodos das regras
+				ref.setSourceCode(sc);
+				ref.createTable();
 
 				QualityIndicators ins = new QualityIndicators();
 				int[] qi = ins.analyseQI(sc);

@@ -74,7 +74,8 @@ public class ReadExcelFile
 	public ReadExcelFile() {
 
 		try {
-			this.file = new FindFile("Defeitos.xlsx", new File("C:/"), 6).find();
+			//this.file = new FindFile("Defeitos.xlsx", new File("C:/"), 6).find();
+			this.file = new File("testFiles/Defeitos.xlsx");
 			this.fis = new FileInputStream(file);
 			this.wb = new XSSFWorkbook(fis);
 			this.sheet = wb.getSheetAt(0);
@@ -185,6 +186,17 @@ public class ReadExcelFile
 	
 	public SourceCode[] getSourceCode() {
 		return sc;
+	}
+	
+	/**
+	 * <p>Updates the array of Source Codes.
+	 * </p>
+	 * 
+	 *@return array of Source Codes without excel values
+	 */
+	
+	public void setSourceCode(SourceCode[] sc) {
+		this.sc=sc;
 	}
 	
 	/**
