@@ -120,6 +120,7 @@ public class GUI {
 		frame.getContentPane().add(chckbxLAA);
 
 		JRadioButton rdbtnAnd1 = new JRadioButton("And");
+		rdbtnAnd1.setSelected(true);
 		buttonGroup_1.add(rdbtnAnd1);
 		rdbtnAnd1.setBounds(71, 122, 51, 23);
 		frame.getContentPane().add(rdbtnAnd1);
@@ -130,6 +131,7 @@ public class GUI {
 		frame.getContentPane().add(rdbtnOr1);
 
 		JRadioButton rdbtnAnd2 = new JRadioButton("And");
+		rdbtnAnd2.setSelected(true);
 		buttonGroup.add(rdbtnAnd2);
 		rdbtnAnd2.setBounds(466, 122, 51, 23);
 		frame.getContentPane().add(rdbtnAnd2);
@@ -141,24 +143,28 @@ public class GUI {
 
 		// LOC1
 		textField = new JTextField();
+		textField.setText("0");
 		textField.setBounds(210, 79, 86, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		// CYCLO1
 		textField_1 = new JTextField();
+		textField_1.setText("0");
 		textField_1.setBounds(210, 165, 86, 20);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 
 		// LAA1
 		textField_2 = new JTextField();
+		textField_2.setText("0");
 		textField_2.setColumns(10);
 		textField_2.setBounds(639, 165, 86, 20);
 		frame.getContentPane().add(textField_2);
 
 		// ATFD1
 		textField_3 = new JTextField();
+		textField_3.setText("0");
 		textField_3.setColumns(10);
 		textField_3.setBounds(639, 79, 86, 20);
 		frame.getContentPane().add(textField_3);

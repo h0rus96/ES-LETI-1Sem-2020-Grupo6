@@ -46,7 +46,6 @@ public class ResultsTable {
             for(int j=0;j<4;j++) {            	
                 if(counter==resultsList2.length) break;
                 matrix[i][j]=resultsList2[counter];
-            System.out.printf("matrix[%d][%d]= %d\n",i,j,matrix[i][j]);
             counter++;
             }
         }		
@@ -54,7 +53,7 @@ public class ResultsTable {
 	}
 
 	/**
-	 * Cria a JFrame
+	 * Cria a JFrame com os dados fornecidos no construtor.
 	 */
 	private void showTable() {
 		panel.setLayout(new BorderLayout());
@@ -69,21 +68,19 @@ public class ResultsTable {
 	}
 	
 	/**
-	 * Transforma a Matriz de resultados no formato de tabela
+	 * Transforma a Matriz de resultados no formato de tabela para apresentar na JTable.
 	 */
 	private void addResults() {
-		for(int row = 0; row != model.getRowCount(); row++) {
-			System.out.println(lines[row]);			
+		for(int row = 0; row != model.getRowCount(); row++) {			
 			model.setValueAt(lines[row], row, 0);			
 			for(int column = 1; column != model.getColumnCount(); column++) {
-				System.out.println(column);
 				model.setValueAt(resultsList[column-1][row], row, column);				
 			}
 		}	
 	}
 	
 	/**
-	 * Ponto de entrada para a criação do JFrame com TextArea
+	 * Ponto de entrada para a criação do JFrame com JTable e o array de resultados fornecidos no construtor.
 	 */
 	public void buildTable() {
 		addResults();
