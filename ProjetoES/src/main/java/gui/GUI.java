@@ -213,7 +213,7 @@ public class GUI {
 				int LOCTH;
 				int CYCLOTH;
 				int ATFDTH;
-				int LAATH;
+				double LAATH;
 				boolean ANDLM;
 				boolean ORLM;
 				boolean ANDFE;
@@ -228,7 +228,7 @@ public class GUI {
 				ATFD = chckbxATFD.isSelected();
 				ATFDTH = Integer.parseInt(textField_3.getText());
 				LAA = chckbxLAA.isSelected();
-				LAATH = Integer.parseInt(textField_2.getText());
+				LAATH = Double.parseDouble(textField_2.getText());
 				ANDLM = rdbtnAnd1.isSelected();
 				ORLM = rdbtnOr1.isSelected();
 				ANDFE = rdbtnAnd2.isSelected();
