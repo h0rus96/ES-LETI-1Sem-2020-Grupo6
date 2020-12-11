@@ -45,6 +45,7 @@ public class GUI {
 	private JTextField textField_3;
 	private SourceCode[] sc;
 	private ReadExcelFile ref = new ReadExcelFile();
+
 	/**
 	 * Launch the application.
 	 */
@@ -83,10 +84,10 @@ public class GUI {
 
 			public void actionPerformed(ActionEvent e) {
 
-				if(sc==null) {
-				
-			//	ref.createTable();
-				sc = ref.getSourceCode();
+				if (sc == null) {
+
+					// ref.createTable();
+					sc = ref.getSourceCode();
 				}
 				ref.createTable();
 			}
@@ -196,38 +197,41 @@ public class GUI {
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
 
+				ReadExcelFile instance = new ReadExcelFile();
+
+				Rules regras = new Rules();
 				
+				
+//				if (LM = true) {
+//					if (ANDLM = true) {
+//						for (SourceCode sourcecode : sc) {
+//							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+//							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(),
+//									sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
+//						}
+//					}
+//					if (ORLM = true) {
+//						for (SourceCode sourcecode : sc) {
+//							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
+//							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(),
+//									sourcecode.getCYCLO(), LOCTH, CYCLOTH, ORLM));
+//						}
+//					}
+//				}
+//
+//				if (FE = true) {
+//					if (ANDFE = true) {
+//						for (SourceCode sourcecode : sc) {
+//							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+//						}
+//					}
+//					if (ORFE = true) {
+//						for (SourceCode sourcecode : sc) {
+//							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
+//						}
+//					}
+//				}
 
-				for (SourceCode sourcecode : sc) {
-					Rules regras = new Rules(sourcecode);
-					if (LM = true) {
-						if (ANDLM = true) {
-							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
-							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
-						}
-						if (ORLM = true) {
-						
-							regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM);
-							sourcecode.setIs_long_method_th(regras.longMethod(sourcecode.getLOC(), sourcecode.getCYCLO(), LOCTH, CYCLOTH, ANDLM));
-
-							
-						}
-					}
-
-					if (FE = true) {
-						if (ANDFE = true) {
-							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
-							sourcecode.setIs_feature_envy_th(regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE));
-						}
-						if (ORFE = true) {
-							regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE);
-							sourcecode.setIs_feature_envy_th(regras.featureEnvy(sourcecode.getATFD(), sourcecode.getLAA(), ATFDTH, LAATH, ANDFE));
-						}
-					}
-					
-				}
-				ref.setSourceCode(sc);
-				ref.createTable();
 //				if (chckbxLongMethod.isSelected() == true) {
 //					LM = true;
 //				}
