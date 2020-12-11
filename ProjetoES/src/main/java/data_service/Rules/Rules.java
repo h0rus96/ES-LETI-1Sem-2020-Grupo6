@@ -42,6 +42,8 @@ public class Rules {
 		}
 	}
 	
+	
+	
 
 	public boolean ruleAND(boolean br1, boolean br2) {
 		return (br1 && br2);
