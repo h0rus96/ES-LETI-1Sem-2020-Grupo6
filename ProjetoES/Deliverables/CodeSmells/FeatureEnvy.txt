@@ -1,0 +1,5 @@
+Refactoring Type	Source Entity	Target Class	Source/Target accessed members	Rate it!
+Move Method	data_service.CodeSmells.QualityIndicators::qiiPlasma(int[], data_service.CodeSmells.SourceCode):int[]	data_service.CodeSmells.SourceCode	0/2	
+Move Method	data_service.CodeSmells.QualityIndicators::qiPMD(int[], data_service.CodeSmells.SourceCode):int[]	data_service.CodeSmells.SourceCode	0/2	
+Move Method	data_service.CodeSmells.QualityIndicators::qiTh_LM(int[], data_service.CodeSmells.SourceCode):int[]	data_service.CodeSmells.SourceCode	0/2	
+Move Method	data_service.CodeSmells.QualityIndicators::qiTh_FE(int[], data_service.CodeSmells.SourceCode):int[]	data_service.CodeSmells.SourceCode	0/2	

@@ -1,0 +1,16 @@
+data_service.CodeSmells.ReadExcelFile	public javax.swing.JTable getTable(javax.swing.JTable) 	model	B1	0/19
+data_service.CodeSmells.ReadExcelFile	public javax.swing.JTable getTable(javax.swing.JTable) 	model	B2	0/17
+data_service.CodeSmells.ReadExcelFile	public javax.swing.JTable getTable(javax.swing.JTable) 	model	B3	0/16
+data_service.CodeSmells.ReadExcelFile	public void setExcelValuesToAnArray() 	srcCd	B3	0/14
+GraphResults.GraphResults	public void createGraph() 	graph	B1	0/11
+data_service.CodeSmells.ReadExcelFile	public void createTable() 	panel	B1	0/7
+GraphResults.GraphResults	public void createGraph() 	chartPanel	B1	0/5
+results_table.ResultsTable	private void showTable() 	panel	B1	0/5
+data_service.CodeSmells.ReadExcelFile	public void createTable() 	js	B1	0/3
+gui.GUI	private void initialize() 	frame	B1	0/3
+results_text.ResultsText	private void showTable() 	panel	B1	0/3
+gui.GUI	private void initialize() 	textField	B1	0/2
+gui.GUI	private void initialize() 	textField_1	B1	0/2
+gui.GUI	private void initialize() 	textField_2	B1	0/2
+gui.GUI	private void initialize() 	textField_3	B1	0/2
+GraphResults.GraphResults	private org.jfree.chart.JFreeChart createChart(org.jfree.data.category.CategoryDataset) 	plot	B1	1/3

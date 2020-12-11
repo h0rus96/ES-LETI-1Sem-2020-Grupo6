@@ -74,7 +74,6 @@ public class ReadExcelFile
 	public ReadExcelFile() {
 
 		try {
-			//this.file = new FindFile("Defeitos.xlsx", new File("C:/"), 6).find();
 			this.file = new File("testFiles/Defeitos.xlsx");
 			this.fis = new FileInputStream(file);
 			this.wb = new XSSFWorkbook(fis);
