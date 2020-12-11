@@ -7,9 +7,14 @@ package data_service.Rules;
 
 public class Rules {
 
-	public Rules() {
-	}
-
+	/**
+	 * Para a regra LongMethod, avalia o LOC em relação ao threshold, se o LOC for
+	 * maior que o th então devolve verdadeiro, se não, devolve falso.
+	 * 
+	 * @param LOC
+	 * @param th1
+	 * @return boolean
+	 */
 	public boolean longMethodLOC(int LOC, int th1) {
 		if (LOC > th1) {
 			return true;
@@ -18,6 +23,14 @@ public class Rules {
 		}
 	}
 
+	/**
+	 * Para a regra LongMethod, avalia o CYCLO em relação ao threshold, se o CYCLO
+	 * for maior que o th então devolve verdadeiro, se não, devolve falso.
+	 * 
+	 * @param CYCLO
+	 * @param th1
+	 * @return boolean
+	 */
 	public boolean longMethodCYCLO(int CYCLO, int th1) {
 		if (CYCLO > th1) {
 			return true;
@@ -26,6 +39,14 @@ public class Rules {
 		}
 	}
 
+	/**
+	 * Para a regra FeatureEnvy, avalia o ATFD em relação ao threshold, se o ATFD
+	 * for maior que o th então devolve verdadeiro, se não, devolve falso.
+	 * 
+	 * @param ATFD
+	 * @param th1
+	 * @return boolean
+	 */
 	public boolean featureEnvyATFD(int ATFD, int th1) {
 		if (ATFD > th1) {
 			return true;
@@ -34,6 +55,15 @@ public class Rules {
 		}
 	}
 
+	/**
+	 * Para a regra FeatureEnvy, avalia o LAA em relação ao threshold, se o LAA for
+	 * maior que o th então devolve verdadeiro, se não, devolve falso.
+	 * 
+	 * 
+	 * @param LAA
+	 * @param th1
+	 * @return boolean
+	 */
 	public boolean featureEnvyLAA(double LAA, double th1) {
 		if (LAA > th1) {
 			return true;
@@ -42,10 +72,22 @@ public class Rules {
 		}
 	}
 
+	/**
+	 * 
+	 * @param br1
+	 * @param br2
+	 * @return boolean
+	 */
 	public boolean ruleAND(boolean br1, boolean br2) {
 		return (br1 && br2);
 	}
 
+	/**
+	 * 
+	 * @param br1
+	 * @param br2
+	 * @return boolean
+	 */
 	public boolean ruleOR(boolean br1, boolean br2) {
 		return (br1 || br2);
 	}
