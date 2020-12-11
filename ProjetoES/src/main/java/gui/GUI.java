@@ -3,6 +3,8 @@ package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -78,23 +80,51 @@ public class GUI {
 		frame.setBounds(100, 100, 903, 397);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JButton btnImportExcell = new JButton("Import Excell");
-		btnImportExcell.setBounds(760, 328, 119, 23);
-		btnImportExcell.addActionListener(new ActionListener() {
-
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnQIgraph = new JButton("Graph");
+		btnQIgraph.setBounds(100, 328, 75, 20);
+		btnQIgraph.setEnabled(false);
+		btnQIgraph.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				if (sc == null) {
-
-					// ref.createTable();
-					sc = ref.getSourceCode();
-				}
-				ref.createTable();
+				QualityIndicators ins = new QualityIndicators();
+				int[] qi = ins.analyseQI(sc);
+				GraphResults rgrph = new GraphResults(qi);
+				rgrph.createGraph();
 			}
 		});
-		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(btnImportExcell);
-
+		frame.getContentPane().add(btnQIgraph);
+		
+		JButton btnQItable = new JButton("Table");
+		btnQItable.setBounds(200, 328, 75, 20);
+		btnQItable.setEnabled(false);
+		btnQItable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QualityIndicators ins = new QualityIndicators();
+				int[] qi = ins.analyseQI(sc);
+				ResultsTable rtbl = new ResultsTable(qi);
+				rtbl.buildTable();
+			}
+		});
+		frame.getContentPane().add(btnQItable);
+		
+		JButton btnQItext = new JButton("Text");
+		btnQItext.setBounds(300, 328, 75, 20);
+		btnQItext.setEnabled(false);
+		btnQItext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QualityIndicators ins = new QualityIndicators();
+				int[] qi = ins.analyseQI(sc);
+				ResultsText rtxt = new ResultsText(qi);
+				rtxt.buildTable();
+			}
+		});
+		frame.getContentPane().add(btnQItext);
+		
+		JLabel lblQualityIndicators = new JLabel("Display Quality Indicators");
+		lblQualityIndicators.setBounds(165, 285, 300, 40);
+		frame.getContentPane().add(lblQualityIndicators);
+		
 		JCheckBox chckbxLongMethod = new JCheckBox("Long Method");
 		chckbxLongMethod.setBounds(150, 37, 97, 23);
 		frame.getContentPane().add(chckbxLongMethod);
@@ -171,6 +201,7 @@ public class GUI {
 
 		JButton btnScanCode = new JButton("Scan Code");
 		btnScanCode.setBounds(303, 222, 159, 38);
+		btnScanCode.setEnabled(false);
 		btnScanCode.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean LM;
@@ -202,8 +233,6 @@ public class GUI {
 				ORLM = rdbtnOr1.isSelected();
 				ANDFE = rdbtnAnd2.isSelected();
 				ORFE = rdbtnOr2.isSelected();
-
-				ReadExcelFile instance = new ReadExcelFile();
 
 				Rules regras = new Rules();
 
@@ -266,22 +295,33 @@ public class GUI {
 						}
 					}
 				}
-
 				ref.setSourceCode(sc);
 				ref.createTable();
-
-				QualityIndicators ins = new QualityIndicators();
-				int[] qi = ins.analyseQI(sc);
-				ResultsTable rtbl = new ResultsTable(qi);
-				rtbl.buildTable();
-				ResultsText rtxt = new ResultsText(qi);
-				rtxt.buildTable();
-				GraphResults rgrph = new GraphResults(qi);
-				rgrph.createGraph();
+				btnQIgraph.setEnabled(true);
+				btnQItable.setEnabled(true);
+				btnQItext.setEnabled(true);
 			}
 		});
 		frame.getContentPane().add(btnScanCode);
+		
+		JButton btnImportExcell = new JButton("Import Excell");
+		btnImportExcell.setBounds(760, 328, 119, 23);
+		btnImportExcell.addActionListener(new ActionListener() {
 
+			public void actionPerformed(ActionEvent e) {
+
+				if (sc == null) {
+
+					// ref.createTable();
+					sc = ref.getSourceCode();
+				}
+				ref.createTable();
+				btnScanCode.setEnabled(true);
+			}
+		});
+		
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(btnImportExcell);
 	}
 
 }
