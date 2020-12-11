@@ -93,11 +93,12 @@ class TestReadExcelFile {
 	
 	/**
 	 * Test method for {@link data_service.CodeSmells.ReadExcelFile#getSourceCode()}.
+	 * Test method for {@link data_service.CodeSmells.ReadExcelFile#setSourceCode(sourcecode[])}.
 	 */
 	@Test
-	void testGetSourceCode() {
-		SourceCode[] result = ref.getSourceCode();
-		assertEquals(sctest.length, result.length);
+	void testGetSetSourceCode() {
+		ref.setSourceCode(sctest);
+		assertArrayEquals(sctest, ref.getSourceCode());
 	}
 
 }

@@ -179,6 +179,28 @@ class TestSourceCode {
 		boolean f = false;
 		assertEquals(f, sourceCodeTest.getIs_featue_envy());
 	}
+	
+	/**
+	 * Test method for {@link data_service.CodeSmells.SourceCode#getIs_feature_envy_th()}.
+	 * Test method for {@link data_service.CodeSmells.SourceCode#setIs_feature_envy_th(boolean)}.
+	 */
+	@Test
+	void testGetSetIs_feature_envy_th() {
+		sourceCodeTest.setIs_feature_envy_th(true);
+		boolean f = true;
+		assertEquals(f, sourceCodeTest.getIs_feature_envy_th());
+	}
+	
+	/**
+	 * Test method for {@link data_service.CodeSmells.SourceCode#getIs_long_method_th()}.
+	 * Test method for {@link data_service.CodeSmells.SourceCode#setIs_long_method_th(boolean)}.
+	 */
+	@Test
+	void testGetSetIs_long_method_th() {
+		sourceCodeTest.setIs_long_method_th(true);
+		boolean f = true;
+		assertEquals(f, sourceCodeTest.getIs_long_method_th());
+	}
 
 	/**
 	 * Test method for {@link data_service.CodeSmells.SourceCode#toString()}.
@@ -186,7 +208,7 @@ class TestSourceCode {
 	@Test
 	void testToString() {
 		System.out.println(sourceCodeTest.toString());
-		assertEquals("0 null Test null 0 0 0 0.0 null null null null false false", sourceCodeTest.toString());
+		assertEquals("0 null Test null 0 0 0 0.0 null null null null false true", sourceCodeTest.toString());
 	}
 
 }
